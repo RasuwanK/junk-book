@@ -9,7 +9,16 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        '40%-60%': '40% 60%'
+      },
+      colors: {
+        'brwhite': '#fdf6e3',
+        'brblack': '#002b36',
+        'black': '#073642',
+      }
+    },
   },
   plugins: [],
 }
