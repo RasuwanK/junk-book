@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
+import useJunks from '@/hooks/use-junks'
+import { Fragment } from 'react';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -7,6 +9,7 @@ const inter = Inter({
 })
 
 export default function Home() {
+  const { junks, isLoading, error } = useJunks();
   return (
     <>
       <Head>
@@ -15,26 +18,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={inter.className}>
-        <aside id="selector">
-          <header>
-            <h2>Table of content</h2>
-          </header>
-          <section>
-            <form>
-              <input type="date" />
-            </form>
-            <ul>
-              <li></li>
-            </ul>
-          </section>
-        </aside>
-        <article>
-          <header>
-            <h2></h2>
-          </header>
-          <section></section>
-        </article>
+      <main 
+        style={inter.style} 
+        className="bg-brwhite text-brblack flex flex-col"
+      >
+        
       </main>
     </>
   )
