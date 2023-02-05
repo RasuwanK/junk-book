@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import Head from 'next/head'
 import { useForm } from "react-hook-form";
-import {collection, setDoc, doc, addDoc} from "firebase/firestore";
-import { db } from '@/lib/firebase';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '@/lib/firebase-services';
 
 interface StorySubmit {
     date: string;
@@ -12,12 +12,12 @@ interface StorySubmit {
 
 export default function AddJunk() {
     const toDateString = (date: Date) => {
-        return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate()}`;
+        return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
     }
 
     const setJunk = async (
-        date: Date, 
-        title: string, 
+        date: Date,
+        title: string,
         story: string
     ) => {
         //const documentRef = doc(collection(db, "junks"));
@@ -44,7 +44,7 @@ export default function AddJunk() {
         }
     });
 
-    const submitter = async ({date, title, story}: StorySubmit) => {
+    const submitter = async ({ date, title, story }: StorySubmit) => {
         await setJunk(new Date(date), title, story);
         console.log("Junk added !");
     }
