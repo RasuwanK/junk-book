@@ -11,12 +11,11 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        '40%-60%': '40% 60%'
+        "with-sidebar": "80vw 20vw"
       },
       colors: {
-        'brwhite': '#fdf6e3',
-        'brblack': '#002b36',
-        'black': '#073642',
+        "pale-white": "#EBF5EE",
+        "dark-blue": "#283044"
       }
     },
   },
