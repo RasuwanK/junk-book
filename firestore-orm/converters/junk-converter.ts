@@ -13,6 +13,7 @@ const junkConverter = {
       title: junk.title,
       story: junk.story,
       dateAdded: Timestamp.fromDate(junk.dateAdded),
+      index: junk.index
     };
   },
   fromFirestore: (
@@ -20,7 +21,8 @@ const junkConverter = {
     options: SnapshotOptions | undefined
   ) => {
     const data = snapshot.data(options);
-    return new Junk(data.title, data.story, new Date(data.dateAdded.seconds));
+    const date = new Timestamp(data.dateAdded.seconds, data.dateAdded.nanoseconds).toDate();
+    return new Junk(data.title, data.story, date, data.index);
   },
 };
 
