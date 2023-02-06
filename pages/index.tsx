@@ -1,15 +1,15 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
+import { Poppins } from '@next/font/google'
 import useJunks from '@/hooks/use-junks'
 import { Fragment } from 'react';
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"]
 })
 
 export default function Home() {
-  const { junks, isLoading, error } = useJunks();
+  //const { junks, isLoading, error } = useJunks();
   return (
     <>
       <Head>
@@ -19,10 +19,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main 
-        style={inter.style} 
-        className="bg-brwhite text-brblack flex flex-col"
+        style={poppins.style} 
+        className="grid grid-cols-with-sidebar h-[100vh] w-full bg-pale-white text-dark-blue"
       >
-        
+        <p>Welcome to junk book</p>
       </main>
     </>
   )
